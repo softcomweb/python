@@ -1,0 +1,33 @@
+---
+name: python lint
+
+on:
+  push:
+    branchs: [main]
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: set up python3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: install dependencies
+        run: |
+          python -m pip install --user --upgrade pip
+          pip install --user -r requirements.txt
+
+      - name: lint with flake8
+        run: |
+          python_files=$(find . -type f -name "*.py")
+          if [[ -n "$python_files" ]]; then
+            for file in $python_files; do
+              echo "[INFO] Running flake8 on $file"
+              flake8 $file
+            done
+            echo "[INFO] Done Running flake8"
+          else
+            echo "[INFO] No python file found. Skipping..."
+          fi
