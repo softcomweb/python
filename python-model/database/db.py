@@ -26,14 +26,14 @@ def put_single_item(item) -> bool:
     table.put_item(Item=item)
     return True
 
-def query_for_item(key, pk=None, sk=None, operation=None, query_str=None):
-  if operator:
-    key_condition_expression = And(
-      Key(pk).eq(key),
-      Key(sk).f"{operation}'(query_str)
-    )
-    item = table.query(
-      KeyConditionExpression=key_condition_expression
-    ).get("Items", [])
+# def query_for_item(key, pk=None, sk=None, operation=None, query_str=None):
+#   if operator:
+#     key_condition_expression = And(
+#       Key(pk).eq(key),
+#       Key(sk).f"{operation}'(query_str)
+#     )
+#     item = table.query(
+#       KeyConditionExpression=key_condition_expression
+#     ).get("Items", [])
 
-    return item
+#     return item
