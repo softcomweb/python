@@ -1,8 +1,5 @@
 from . import common
 
-# from typing import Dict
-from boto3.dynamodb.conditions import Key, And
-
 table = common.get_dynamodb_table()
 
 
