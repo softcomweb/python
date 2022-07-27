@@ -1,0 +1,9 @@
+[user]
+email = leadel@softcomweb.infog
+name = Leadel Kolo
+ 
+[github]
+user = leacoco”
+ 
+[core]
+sshCommand = “ssh -i ~/.ssh/softcomweb-github”
